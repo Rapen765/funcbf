@@ -4,23 +4,25 @@ Funcbf is a superset of brainfuck with a compiler and preprocessor written in ru
 ## Features
 The new features in funcbf are:
 
-- ! resets the pointer to 0
-- % stores the current pointer in the cell
-- ^ dereferences a cell to a pointer position
-- : print number in cell (not char)
-- ; gets number from user (not char)
-- Number before a +, -, <, > repeats the operation
-- \* before +, -, <, > replaces the * with the number in cell and repeats the operation.
+The new features in Funcbf are:
 
-### Preprocessor
-Funcbf contains a preprocessor which allows the definition of functions, namespaces and also importing modules.
+- **`!`**: Resets the pointer to 0.
+- **`%`**: Stores the current pointer in the cell.
+- **`^`**: Dereferences a cell to a pointer position.
+- **`:`**: Prints the number in a cell (not a character).
+- **`;`**: Gets a number from user input (not a character).
+- **Number before `+`, `-`, `<`, `>`**: Repeats the operation the specified number of times.
+- **`*` before `+`, `-`, `<`, `>`**: Replaces the `*` with the number in the cell and repeats the operation.
 
-- \# name - defines a namespace
-- $ func_name code $ - defines a function
-- & module_name - imports a module
-- @namespace::func_name- executes the function
+## Preprocessor
 
-The default namespace in a file is "main". No namespace can be named "main".
-When the preprocessor sees a module import it looks in all of the include dirs for a file "module_name.bf".
+Funcbf contains a preprocessor that allows the definition of functions, namespaces, and the importing of modules.
+
+- **`# name`**: Defines a namespace.
+- **`$ func_name code $`**: Defines a function.
+- **`& module_name`**: Imports a module.
+- **`@namespace::func_name`**: Executes the function.
+
+The default namespace in a file is "main". No namespace can be named "main". When the preprocessor sees a module import, it looks in all of the include directories for a file named `module_name.bf`.
 
 
