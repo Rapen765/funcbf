@@ -1,7 +1,10 @@
 use crate::tokenizer::{Token, Tokens};
 use anyhow::anyhow;
 
+/// The codeblock type is just a vector of commands
 pub type CodeBlock = Vec<AST>;
+
+/// Enum containing all commands
 #[derive(Debug, Clone)]
 pub enum AST {
     Add(i8),
@@ -23,6 +26,13 @@ pub enum AST {
     FunctionCall(String),
 }
 
+/// Parses the code and returns a vector of commands.
+///
+/// # Args:
+///     tokens: vector of input tokens (Tokens)
+///
+/// # Returns:
+///     A result containing vector of commands (CodeBlock)
 pub fn parse(tokens: &Tokens) -> anyhow::Result<CodeBlock> {
     let mut code_block: CodeBlock = CodeBlock::new();
     let mut index: usize = 0;
@@ -73,9 +83,15 @@ pub fn parse(tokens: &Tokens) -> anyhow::Result<CodeBlock> {
                             break;
                         }
                     }
+
+                    if closing_index == index {
+                        return Err(anyhow!("Expected end of function"));
+                    }
                     let code = parse(&tokens[index..closing_index].to_vec())?;
                     index = closing_index;
                     code_block.push(AST::FunctionDef(string.clone(), code));
+                } else {
+                    return Err(anyhow!("Expected identifier"));
                 }
             }
             Token::FunctionCallSymbol => {
