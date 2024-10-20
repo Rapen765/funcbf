@@ -16,7 +16,7 @@ The new features in funcbf are:
 Funcbf contains a preprocessor which allows the definition of functions, namespaces and also importing modules.
 
 - \# name - defines a namespace
-- $ func_name <code> $ - defines a function
+- $ func_name code $ - defines a function
 - & module_name - imports a module
 - @namespace::func_name- executes the function
 
