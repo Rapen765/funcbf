@@ -1,0 +1,6 @@
+/target
+/.idea
+a.bf
+output
+output.c
+stdlib.bf
