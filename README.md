@@ -2,8 +2,6 @@
 Funcbf is a superset of brainfuck with a compiler and preprocessor written in rust.
 
 ## Features
-The new features in funcbf are:
-
 The new features in Funcbf are:
 
 - **`!`**: Resets the pointer to 0.
