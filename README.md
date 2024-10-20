@@ -10,7 +10,7 @@ The new features in funcbf are:
 - : print number in cell (not char)
 - ; gets number from user (not char)
 - Number before a +, -, <, > repeats the operation
-- * before +, -, <, > replaces the * with the number in cell and repeats the operation.
+- \* before +, -, <, > replaces the * with the number in cell and repeats the operation.
 
 ### Preprocessor
 Funcbf contains a preprocessor which allows the definition of functions, namespaces and also importing modules.
