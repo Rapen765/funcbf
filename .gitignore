@@ -4,3 +4,4 @@ a.bf
 output
 output.c
 stdlib.bf
+.gitignore
