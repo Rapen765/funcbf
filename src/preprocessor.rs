@@ -59,7 +59,7 @@ pub fn preprocessor(
     let code = include_preprocessor(code, &preprocessor_config)?;
     let mut index: usize = 0;
     let mut functions: HashMap<String, CodeBlock> = HashMap::new();
-    let mut current_namespace: String = "_main".to_string();
+    let mut current_namespace: String = "main".to_string();
     while index < code.len() {
         let current_token = code[index].clone();
         match current_token {
@@ -71,11 +71,13 @@ pub fn preprocessor(
             }
 
             AST::NamespaceDef(name) => {
+                if name == "main".to_string() {
+                    return Err(anyhow!("Cannot define namespace called 'main'"));
+                }
                 current_namespace = name;
             }
 
             AST::FunctionCall(name) => {
-                println!("{}", name);
                 if let Some(func_code) = functions.get(&name) {
                     code_block.extend(func_code.clone());
                 };

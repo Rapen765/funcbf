@@ -67,8 +67,5 @@ fn main() -> Result<()> {
     // Save the generated C code to the output file
     save_to_file(output_file.to_str().unwrap(), &c_code)?;
 
-    // Print debugging information
-    println!("{:?}\n\n\n{:?}\n\n\n{:?}", parsed, tokenized, c_code);
-
     Ok(())
 }
